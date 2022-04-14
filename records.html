@@ -7,13 +7,19 @@
 </head>
 <body>
   <div class="wrapper" id="wrapper">
+    <div class="records-logo">
+      <img src="img/little-frog.png" alt="little-frog">
+    </div>
     <div class="container">
+      <div class="container-heading">
+        <h2>Records</h2>
+      </div>
       <div class="table">
         <table>
           <tr>
-            <td>№</td>
-            <td>Name</td>
-            <td>Score</td>
+            <td class="number">№</td>
+            <td class="player-name">Name</td>
+            <td class="player-score">Score</td>
           </tr>
           <tr>
             <td>1</td>
@@ -43,7 +49,11 @@
         </table>
       </div>
     </div>
+    <div class="buttons">
+      <button class="button" onclick="goToMainPage()">Main page</button>
+    </div>
   </div>
+
   <script src="records.js"></script>
 </body>
 </html>
