@@ -4,7 +4,9 @@ function goToRules() {
 function gotoRecords() {
     document.location.href = '../records-page/records.html';
 }
-
+function goToAboutGame() {
+    document.location.href = '../about-game-page/about-game.html';
+}
 var audio = document.getElementById('sound');
 document.addEventListener('DOMContentLoaded', function () {
     audio = new Audio().play();

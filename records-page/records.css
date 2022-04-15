@@ -9,11 +9,10 @@ body {
 
 .wrapper {
     margin: 80px auto;
-    padding: 10px;
     width: 600px;
     background-color: #264e2c;
-    font-size: 1rem;
     font-family: 'Caveat Brush', cursive;
+    font-size: 1rem;
     border-radius: 10px;
     -webkit-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
@@ -29,7 +28,6 @@ body {
     padding: 10px;
     border: 5px solid #f8fac5;
     color: #dce078;
-    font-size: 2em;
 }
 
 .table tr td {
@@ -52,7 +50,6 @@ body {
 }
 
 .container-heading h2 {
-    font-size: 3em;
     color: #dce078;
 }
 
@@ -69,29 +66,35 @@ body {
 
 .buttons {
     display: flex;
-    align-items: center;
+    padding: 10px;
     justify-content: center;
 }
 
 .button {
-    width: 200px;
-    height: 60px;
-    font-size: 2.2em;
-    font-family: 'Caveat Brush', cursive;
-    letter-spacing: 1px;
-    color: #316539;
-    font-weight: 700;
+    width: 150px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 50px;
     border-style: none;
-    border-radius: 5px;
     background-color: #dce078;
-    margin-bottom: 20px;
-    -webkit-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
-    box-shadow: 4px 4px 8px 0 rgba(57, 59, 61, 0.2);
+    font-family: 'Caveat Brush', cursive;
+    color: #316539;
+    font-size: 18px;
 }
 
 .button:hover {
     cursor: pointer;
-    background-color: #3f834a;
+    background-color: #4ca25a;
     color: #f8fac5;
+}
+
+.rules-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.rules-logo img {
+    margin-top: -60px;
+    width: 100px;
+    height: 100px;
 }
