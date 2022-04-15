@@ -11,14 +11,14 @@ body {
     border-radius: 10px;
     -webkit-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
-    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+    box-shadow: 14px 14px 8px 0 rgba(34, 60, 80, 0.2);
 }
 
 .main-menu {
     margin-top: 80px;
 }
 
-.button {
+.btn {
     font-family: 'Caveat Brush', cursive;
     display: block;
     margin: 5px auto;
@@ -34,7 +34,7 @@ body {
     padding-top: 20px;
 }
 
-.button:hover {
+.btn:hover {
     cursor: pointer;
     color: #797c19;
 }
