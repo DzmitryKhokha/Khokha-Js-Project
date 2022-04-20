@@ -1,3 +1,6 @@
+function startGame() {
+    document.location.href = '../index.html';
+}
 function goToRules() {
     document.location.href = '../rules-page/rules.html';
 }
