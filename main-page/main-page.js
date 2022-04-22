@@ -1,5 +1,5 @@
 function startGame() {
-    document.location.href = '../index.html';
+    document.location.href = '../game/game.html';
 }
 function goToRules() {
     document.location.href = '../rules-page/rules.html';

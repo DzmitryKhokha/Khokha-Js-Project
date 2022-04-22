@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Frogger</title>
   <link rel="stylesheet" href="game.css">
 </head>
 <body>
+<audio id="sound" autoplay src="../audio/sound.mp3" controls></audio>
   <div class="wrapper">
-    <div id="canvas1"></div>
-    <div id="canvas2"></div>
-    <div id="canvas3"></div>
-    <div id="canvas4"></div>
-    <div id="canvas5"></div>
+    <!--создадим несколько элементов canvas, чтобы не обновлять весь canvas, а только тот, который нам нужен-->
+    <canvas id="canvas1"></canvas>
+    <canvas id="canvas2"></canvas>
+    <canvas id="canvas3"></canvas>
   </div>
-  <script></script>
+
+  <script src="setup.js"></script>
+  <script src="frog.js"></script>
+  <script src="objects.js"></script>
+  <script src="utilities.js"></script>
 </body>
 </html>

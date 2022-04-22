@@ -1,10 +1,14 @@
+body {
+    background-color: rgba(168, 235, 18, 0.34);
+}
+
 .wrapper {
-    border: 5px solid #2d2d2d;
+    border: 5px solid #4b4b4b;
     top: 50%;
     left: 50%;
     position: absolute;
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     transform: translate(-50%, -50%);
     background: url("/img/background.png");
 }
