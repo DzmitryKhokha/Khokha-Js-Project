@@ -47,7 +47,7 @@ class Frog {
         }
     }
     draw() {
-        ctx3.fillStyle = 'green';
+        ctx3.fillStyle = 'yellow';
         ctx3.fillRect(this.x, this.y, this.width, this.height);
     }
     jump() {

@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    margin: 80px auto;
+    width: 600px;
+    height: 600px;
+    border-radius: 20px;
+    background-color: #264e2c;
+    font-size: 1rem;
+    -webkit-box-shadow: 0 8px 12px 3px rgba(29,59,33,0.53);
+    box-shadow: 0 8px 12px 3px rgba(29,59,33,0.53);
+}
+
+.btn {
+    font-family: 'Caveat Brush', cursive;
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+    height: 40px;
+    border-radius: 50px;
+    border-style: none;
+    text-align: center;
+    font-size: 25px;
+    color: #316539;
+    background-color: #dce078;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #4ca25a;
+    color: #f8fac5;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
