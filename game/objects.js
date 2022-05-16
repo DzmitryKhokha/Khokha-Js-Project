@@ -84,28 +84,9 @@ function handleObjects() {
     for (let i = 0; i < carsArray.length; i++) {
         if (collision(frog, carsArray[i])) {
 
-                    saveScore();
-                    SwitchToRecordsPage();
-                    initTable();
-                    let span = document.createElement('span');
-                    let userSpan = document.getElementById('user-name');
             resetGame();
             }
-
-
     }
-
-    function saveScore() {
-        let ask = confirm('You crashed! Continue?');
-            if (!ask) {
-                let user = prompt('Введите имя: ', '');
-                if (user !== '') {
-                    localStorage.getItem(score);
-                    alert('Your score: ' + score);
-                }
-            }
-    }
-
     // взаимодействие с брёвнами и черепахами
     if (frog.y < 250 && frog.y > 100) {
         safe = false;
@@ -120,7 +101,5 @@ function handleObjects() {
             resetGame();
         }
     }
-    //запись результат игрока
-
 }
 

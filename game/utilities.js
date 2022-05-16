@@ -33,9 +33,8 @@ window.addEventListener('keyup', function (e) {
 
 //функция зачисления очков
 function scored() {
-
     score++; // зачисляем очко
-    localStorage.setItem('user', score);
+    localStorage.setItem('user-score',JSON.stringify(score));
     gameSpeed += 0.25; // увеличиваем скорсть игры
     frog.x = canvas.width / 2 - frog.width / 2; // ставим лягушку в начальную позицию при зачислении очка
     frog.y = canvas.height - frog.height - 40;
@@ -57,14 +56,6 @@ function handleScoreBoard() {
     ctx4.fillText('Game Speed: ' + gameSpeed.toFixed(2), 10, 105);
 }
 
-//pop-up с вопросом о продолжении игры
-function handlePopQuestion() {
-    ctx5.fillStyle = 'green';
-    ctx5.strokeStyle = 'black';
-    ctx5.font = '40px Arial';
-    ctx5.fillText('You crashed!!! DO you want to continue?', 400, 100);
-}
-
 //столкновения с машинами (first - это лягушка, second - машина)
 function  collision(first, second) {
     return !( first.x > second.x + second.width ||
@@ -77,9 +68,25 @@ function  collision(first, second) {
 
 //рестарт игры
 function resetGame() {
+    saveUserScore();
     frog.x = canvas.width / 2 - frog.width / 2;
     frog.y = canvas.height - frog.height - 40;
     score = 0;
     collisionCount++;
     gameSpeed = 1;
+}
+
+function saveUserScore() {
+    let ask = confirm('You crashed! Continue?');
+    if (!ask) {
+        let user = prompt('Введите имя: ', '');
+        if (user !== '') {
+            localStorage.setItem('user-name', JSON.stringify(user));
+            let userScore = localStorage.getItem('user-score');
+            let userName = localStorage.getItem('user-name');
+            alert(userName + ' your score is: ' + userScore);
+            SwitchToRecordsPage();
+            initTable();
+        }
+    }
 }

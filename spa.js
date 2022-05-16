@@ -35,6 +35,7 @@ function SwitchToState(State) {
 }
 function SwitchToMainPage() {
     SwitchToState({ pageName: 'Main'} );
+    document.location.reload();
 }
 function SwitchToRulesPage() {
     SwitchToState({ pageName: 'Rules'} );
@@ -185,13 +186,10 @@ function initTable() {
 
 function initFirstRow() {
     let row_1 = document.createElement('tr');
-    // let heading_1 = document.createElement('th');
-    // heading_1.innerHTML = '№';
     let heading_2 = document.createElement('th');
     heading_2.innerHTML = 'Name';
     let heading_3 = document.createElement('th');
     heading_3.innerHTML = 'Score';
-    // row_1.appendChild(heading_1);
     row_1.appendChild(heading_2);
     row_1.appendChild(heading_3);
     return row_1;
@@ -199,8 +197,8 @@ function initFirstRow() {
 
 function initRow() {
     let row = document.createElement('tr');
-    row.appendChild(initRowData(localStorage.getItem(score)));
-    row.appendChild(initRowData(localStorage.getItem(score)));
+    row.appendChild(initRowData(localStorage.getItem('user-name')));
+    row.appendChild(initRowData(localStorage.getItem('user-score')));
     return row;
 }
 
@@ -212,13 +210,10 @@ function initRowData(score) {
 
 function initSecondRow() {
     let row_2 = document.createElement('tr');
-    // let row_2_data_1 = document.createElement('td');
-    // row_2_data_1.innerHTML = "1";
     let row_2_data_2 = document.createElement('td');
     row_2_data_2.innerHTML = "James";
     let row_2_data_3 = document.createElement('td');
     row_2_data_3.innerHTML = "6";
-    // row_2.appendChild(row_2_data_1);
     row_2.appendChild(row_2_data_2);
     row_2.appendChild(row_2_data_3);
     return row_2;
@@ -226,13 +221,10 @@ function initSecondRow() {
 
 function initThirdRow() {
     let row_3 = document.createElement('tr');
-    // let row_3_data_1 = document.createElement('td');
-    // row_3_data_1.innerHTML = "2";
     let row_3_data_2 = document.createElement('td');
     row_3_data_2.innerHTML = "Adam";
     let row_3_data_3 = document.createElement('td');
     row_3_data_3.innerHTML = "3";
-    // row_3.appendChild(row_3_data_1);
     row_3.appendChild(row_3_data_2);
     row_3.appendChild(row_3_data_3);
     return row_3;
