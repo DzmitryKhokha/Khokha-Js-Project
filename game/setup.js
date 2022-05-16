@@ -13,17 +13,43 @@ const ctx3 = canvas3.getContext('2d');
 canvas3.width = 600;
 canvas3.height = 600;
 
+const canvas4 = document.getElementById('canvas4');
+const ctx4 = canvas4.getContext('2d');
+canvas4.width = 800;
+canvas4.height = 800;
+
+const canvas5 = document.getElementById('canvas5');
+const ctx5 = canvas5.getContext('2d');
+canvas5.width = 600;
+canvas5.height = 600;
+
+
+
 // объявляем глобальные переменные
-const cell = 40; // размер ячейки в пикселях(т.е. шаг на который прыгает лягушка)
+const cell = 80; // размер ячейки в пикселях(т.е. шаг на который прыгает лягушка)
 let keys = [];
 let score = 0;
 let collisionCount = 0;
 let frame = 0;
-let gameSpeed = 1; // будет увеличиваться с течением времени
+let gameSpeed = 1; // будет увеличиваться при успешной попытке
+let safe = false;
 
 const carsArray = []; // массив машин, которые будут ездить по дороге
-const logsArray = []; // массив брёвен, лягушек, которые будут плыть по реке
+const logsArray = []; // массив брёвен, черепах, которые будут плыть по реке
 
 // картинки
 const background1 = new Image();
-background1.src = '/img/background1-3.png';
+background1.src = '/img/background1-6.png';
+
+const turtle = new Image();
+turtle.src = '/img/turtles.png';
+
+const log = new Image();
+log.src = '/img/log.png';
+
+const car = new Image();
+car.src = '/img/cars.png';
+let numberOfCars = 3;
+
+const frogImage = new Image();
+frogImage.src = '/img/frog_spritesheet.png';

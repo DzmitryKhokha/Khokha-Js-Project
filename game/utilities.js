@@ -1,15 +1,23 @@
 function animate() {
+    ctx1.clearRect(0, 0, canvas.width, canvas.height);
+    ctx2.clearRect(0, 0, canvas.width, canvas.height);
     ctx3.clearRect(0, 0, canvas.width, canvas.height);
+    ctx4.clearRect(0, 0, canvas.width, canvas.height);
+    ctx5.clearRect(0, 0, canvas.width, canvas.height);
+
+
+    ctx2.drawImage(background1, 0, 0 , canvas.width, canvas.height);
     frog.draw();
     frog.update();
-    ctx1.drawImage(background1, 0, 0 , canvas.width, canvas.height);
+
     handleObjects();
+
+    handleScoreBoard();
     requestAnimationFrame(animate); //рекурсия
 }
-
 animate();
 
-//заставим лягушку двигаться
+//заставим лягушку двигаться Переделать на стрелочную функцию
 window.addEventListener('keydown', function (e) {
     keys = [];
     keys[e.keyCode] = true;
@@ -23,9 +31,55 @@ window.addEventListener('keyup', function (e) {
     frog.moving = false;
 })
 
+//функция зачисления очков
 function scored() {
+
     score++; // зачисляем очко
-    gameSpeed += 0.05; // увеличиваем скорсть игры
+    localStorage.setItem('user', score);
+    gameSpeed += 0.25; // увеличиваем скорсть игры
     frog.x = canvas.width / 2 - frog.width / 2; // ставим лягушку в начальную позицию при зачислении очка
-    frog.y = canvas.height - frog.height - 20;
+    frog.y = canvas.height - frog.height - 40;
+}
+
+//табло с очками
+function handleScoreBoard() {
+    ctx4.fillStyle = 'green';
+    ctx4.strokeStyle = 'black';
+    ctx4.font = '30px Arial';
+    ctx4.fillText('Score:', 10, 25);
+    ctx4.fillStyle = 'green';
+    ctx4.font = '40px Verdana';
+    ctx4.fillText(score, 110, 30);
+    ctx4.fillStyle = 'red';
+    ctx4.font = '25px Verdana';
+    ctx4.fillText('Collisions: ' + collisionCount, 10, 75);
+    ctx4.fillStyle = 'black';
+    ctx4.fillText('Game Speed: ' + gameSpeed.toFixed(2), 10, 105);
+}
+
+//pop-up с вопросом о продолжении игры
+function handlePopQuestion() {
+    ctx5.fillStyle = 'green';
+    ctx5.strokeStyle = 'black';
+    ctx5.font = '40px Arial';
+    ctx5.fillText('You crashed!!! DO you want to continue?', 400, 100);
+}
+
+//столкновения с машинами (first - это лягушка, second - машина)
+function  collision(first, second) {
+    return !( first.x > second.x + second.width ||
+                first.x + first.width < second.x ||
+                first.y > second.y + second.height ||
+                first.y + first.height < second.y);
+    // если любое из выражений true значит лягушка и машины не пересекаются, поэтому мы возвращаем
+    // отрицательное значение false, чтобы сделать столкновение
+}
+
+//рестарт игры
+function resetGame() {
+    frog.x = canvas.width / 2 - frog.width / 2;
+    frog.y = canvas.height - frog.height - 40;
+    score = 0;
+    collisionCount++;
+    gameSpeed = 1;
 }

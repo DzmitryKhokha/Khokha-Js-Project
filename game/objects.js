@@ -7,11 +7,21 @@ class Objects {
         this.height = height;
         this.speed = speed;
         this.type = type;
+        this.frameX = 0;
+        this.frameY = 0;
+        // this.randomise = Math.floor(Math.random() * 30 + 30);
+        this.carType = (Math.floor(Math.random() * numberOfCars));
     }
     //метод отрисовки объекта
     draw() {
-        ctx1.fillStyle = 'red';
-        ctx1.fillRect(this.x, this.y, this.width, this.height)
+        if (this.type === 'turtle') {
+            ctx1.drawImage(turtle, 0, 0, 70, 70, this.x, this.y, this.width, this.height);
+        } else if (this.type === 'log') {
+            ctx1.drawImage(log, this.x, this.y, this.width, this.height);
+        } else {
+            /*ctx2.fillRect(this.x, this.y, this.width, this.height);*/
+            ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height, cell * 2, cell, this.x, this.y, this.width, this.height);
+        }
     }
     //обновляем
     update() {
@@ -19,10 +29,13 @@ class Objects {
         if (this.speed > 0) {
             if (this.x > canvas.width + this.width) {
                 this.x = 0 - this.width;
+                this.carType = (Math.floor(Math.random() * numberOfCars));
             }
         } else {
+            this.frameX = 1;
             if (this.x < 0 - this.width) {
                 this.x = canvas.width + this.width;
+                this.carType = (Math.floor(Math.random() * numberOfCars));
             }
         }
     }
@@ -48,17 +61,12 @@ function initObjects() {
     //четвертая полоса препятствий
     for (let i = 0; i < 2; i++) {
         let x = i * 400;
-        carsArray.push(new Objects(x, canvas.height - cell * 5 - 20, cell * 2, cell, -2, 'car'));
+        logsArray.push(new Objects(x, canvas.height - cell * 5 - 20, cell * 2, cell, -2, 'log'));
     }
     //пятая полоса препятствий
     for (let i = 0; i < 3; i++) {
         let x = i * 200;
-        carsArray.push(new Objects(x, canvas.height - cell * 6 - 20, cell, cell, 1, 'car'));
-    }
-    //далее будут ещё полосы препятствий(надо перерисовать background)
-    for (let i = 0; i < 1; i++) {
-        let x = i * 100;
-        carsArray.push(new Objects(x, canvas.height - cell * 7 - 20, cell, cell, 6, 'car'));
+        logsArray.push(new Objects(x, canvas.height - cell * 6 - 20, cell, cell, 1, 'turtle'));
     }
 }
 initObjects();
@@ -72,4 +80,47 @@ function handleObjects() {
         logsArray[i].update();
         logsArray[i].draw();
     }
+    //столкновение с машиной
+    for (let i = 0; i < carsArray.length; i++) {
+        if (collision(frog, carsArray[i])) {
+
+                    saveScore();
+                    SwitchToRecordsPage();
+                    initTable();
+                    let span = document.createElement('span');
+                    let userSpan = document.getElementById('user-name');
+            resetGame();
+            }
+
+
+    }
+
+    function saveScore() {
+        let ask = confirm('You crashed! Continue?');
+            if (!ask) {
+                let user = prompt('Введите имя: ', '');
+                if (user !== '') {
+                    localStorage.getItem(score);
+                    alert('Your score: ' + score);
+                }
+            }
+    }
+
+    // взаимодействие с брёвнами и черепахами
+    if (frog.y < 250 && frog.y > 100) {
+        safe = false;
+
+        for (let i = 0; i < logsArray.length; i++) {
+            if (collision(frog, logsArray[i])) {
+                frog.x += logsArray[i].speed;
+                safe = true;
+            }
+        }
+        if (!safe) {
+            resetGame();
+        }
+    }
+    //запись результат игрока
+
 }
+
