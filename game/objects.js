@@ -12,14 +12,14 @@ class Objects {
         // this.randomise = Math.floor(Math.random() * 30 + 30);
         this.carType = (Math.floor(Math.random() * numberOfCars));
     }
-    //метод отрисовки объекта
+    //отрисовка объектов(черепахи, брёвна, машины)
     draw() {
         if (this.type === 'turtle') {
             ctx1.drawImage(turtle, 0, 0, 70, 70, this.x, this.y, this.width, this.height);
         } else if (this.type === 'log') {
             ctx1.drawImage(log, this.x, this.y, this.width, this.height);
         } else {
-            /*ctx2.fillRect(this.x, this.y, this.width, this.height);*/
+            ctx2.fillRect(this.x, this.y, this.width, this.height);
             ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height, cell * 2, cell, this.x, this.y, this.width, this.height);
         }
     }
@@ -73,12 +73,15 @@ initObjects();
 
 function handleObjects() {
     for (let i = 0; i < carsArray.length; i++) {
+
         carsArray[i].update();
         carsArray[i].draw();
     }
     for (let i = 0; i < logsArray.length; i++) {
+
         logsArray[i].update();
         logsArray[i].draw();
+
     }
     //столкновение с машиной
     for (let i = 0; i < carsArray.length; i++) {

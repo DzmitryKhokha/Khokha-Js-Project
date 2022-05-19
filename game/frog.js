@@ -47,10 +47,10 @@ class Frog {
         }
     }
     draw() {
-        /*ctx3.fillStyle = 'yellow';
-        ctx3.fillRect(this.x, this.y, this.width, this.height);*/
+        ctx3.fillStyle = 'yellow';
+        ctx3.fillRect(this.x, this.y, this.width, this.height);
         ctx3.drawImage(frogImage, 0, 0, this.spriteWidth, this.spriteHeight, this.x - 25, this.y - 25,
-            this.width * 2.3, this.height * 2.3);
+            this.width * 2, this.height * 2);
     }
     jump() {
         console.log('jump');

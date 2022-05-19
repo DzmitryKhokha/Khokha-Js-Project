@@ -271,21 +271,95 @@ function initHistory() {
 //Game-page
 function initGame() {
     let wrapper = document.getElementById('wrapper');
-    let game = document.createElement('div');
-    game.className = 'game';
-    game.appendChild(initCanvas('canvas1'));
-    game.appendChild(initCanvas('canvas2'));
-    game.appendChild(initCanvas('canvas3'));
-    game.appendChild(initCanvas('canvas4', 'score-board'));
-    game.appendChild(initCanvas('canvas5'));
+    console.log(wrapper);
+    // let game = document.createElement('div');
+    // game.className = 'game';
+    // game.id = 'game';
+    wrapper.appendChild(initCanvas('canvas1'));
+    wrapper.appendChild(initCanvas('canvas2'));
+    wrapper.appendChild(initCanvas('canvas3'));
+    wrapper.appendChild(initCanvas('canvas4', 'score-board'));
+    wrapper.appendChild(initCanvas('canvas5'));
     wrapper.appendChild(initButton(SwitchToMainPage));
-    wrapper.appendChild(game);
-    return wrapper;
+    initScoreBoard('score-board', 'score-board');
+    //wrapper.appendChild(game);
+
 }
 
 function initCanvas(id, className) {
     let canvas = document.createElement('canvas');
     canvas.id = id;
     canvas.className = className;
+
+    // if (window.innerWidth < 700) {
+    //     for (let i = 0; i < canvas.length; i++) {
+    //         canvas.width = window.innerWidth;
+    //         canvas.height = window.innerHeight;
+    //     }
+    // }
+
+    // canvas.style.width = '100%';
+    // canvas.style.height = '100%';
+
     return canvas;
 }
+
+
+
+// function resize() {
+//     let canvass = document.getElementsByTagName('canvas');
+//     let canvasRatio = canvass.height / canvass.width;
+//     let windowRatio = window.innerHeight / window.innerWidth;
+//
+//
+//     if (windowRatio < canvasRatio) {
+//         let height = window.innerHeight;
+//         let width = height / canvasRatio;
+//         canvass.style.width = width + 'px';
+//         canvass.style.height = height + 'px';
+//     } else {
+//         let width = window.innerWidth;
+//         let height = width * canvasRatio;
+//         canvass.style.width = width + 'px';
+//         canvass.style.height = height + 'px';
+//     }
+//
+//
+// }
+
+//window.addEventListener('resize', resize, false);
+// resizeCanvas();
+// function resizeCanvas() {
+//     let game = document.getElementById('game');
+//     if (window.innerWidth < 600) {
+//         game.style.width = '500px';
+//         game.style.height = '500px';
+//         console.log(game);
+//     } else {
+//         game.style.width = '600px';
+//         game.style.height = '600px';
+//         console.log(game);
+//     }
+//
+//     let windowWidth = window.innerWidth;
+//     let windowHeight = window.innerHeight;
+//
+//
+//         // console.log(canvas.width);
+//         // console.log(canvas.height);
+//     // if (canvas) {
+//     //     canvas.width = innerWidth;
+//     //     canvas.height = innerHeight;
+//     // }
+// }
+
+// let dimensions = {
+//     max: {
+//         width: 600,
+//         height: 600
+//     },
+//     min: {
+//         width: 300,
+//         height: 300
+//     }
+// }

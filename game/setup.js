@@ -1,29 +1,31 @@
-const canvas = document.getElementById('canvas1');
-const ctx1 = canvas.getContext('2d');
-canvas.width = 600;
+let canvas = document.getElementById('canvas1');
+let ctx1 = canvas.getContext('2d');
 canvas.height = 600;
+canvas.width = canvas.height * (window.innerWidth / window.innerHeight);
 
-const canvas2 = document.getElementById('canvas2');
-const ctx2 = canvas2.getContext('2d');
-canvas2.width = 600;
+let canvas2 = document.getElementById('canvas2');
+let ctx2 = canvas2.getContext('2d');
+// canvas2.width = 600;
 canvas2.height = 600;
+canvas2.width = canvas2.height * (window.innerWidth / window.innerHeight);
 
-const canvas3 = document.getElementById('canvas3');
-const ctx3 = canvas3.getContext('2d');
-canvas3.width = 600;
+let canvas3 = document.getElementById('canvas3');
+let ctx3 = canvas3.getContext('2d');
+//canvas3.width = 600;
 canvas3.height = 600;
+canvas3.width = canvas3.height * (window.innerWidth / window.innerHeight);
 
-const canvas4 = document.getElementById('canvas4');
-const ctx4 = canvas4.getContext('2d');
-canvas4.width = 800;
-canvas4.height = 800;
+// let canvas4 = document.getElementById('canvas4');
+// let ctx4 = canvas4.getContext('2d');
+// //canvas4.width = 800;
+// canvas4.height = 750;
+// canvas4.width = canvas4.height * (window.innerWidth / window.innerHeight);
 
-const canvas5 = document.getElementById('canvas5');
-const ctx5 = canvas5.getContext('2d');
-canvas5.width = 600;
+let canvas5 = document.getElementById('canvas5');
+let ctx5 = canvas5.getContext('2d');
+//canvas5.width = 600;
 canvas5.height = 600;
-
-
+canvas5.width = canvas5.height * (window.innerWidth / window.innerHeight);
 
 // объявляем глобальные переменные
 const cell = 80; // размер ячейки в пикселях(т.е. шаг на который прыгает лягушка)
@@ -53,3 +55,31 @@ let numberOfCars = 3;
 
 const frogImage = new Image();
 frogImage.src = '/img/frog_spritesheet.png';
+
+
+window.addEventListener('resize', res => {
+    document.location.reload();
+})
+// function resize() {
+//     let canvas = document.querySelectorAll('canvas');
+//     // for (let item of canvas) {
+//     //     console.log(item.id);
+//     // }
+//
+//     for (let item of canvas) {
+//         item.width = item.clientWidth;
+//         item.height = item.clientHeight;
+//
+//         console.log(item);
+//     }
+// }
+//
+// resize();
+
+
+// window.addEventListener('resize', () => {
+//     const canvas = document.querySelectorAll('canvas');
+//     canvas.width = window.innerWidth;
+//     canvas.height = window.innerHeight;
+//     frog.draw();
+// })

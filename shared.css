@@ -1,19 +1,31 @@
     /*shared styles*/
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
 .wrapper {
     margin: 80px auto;
     width: 600px;
     height: 600px;
     border-radius: 20px;
-    background-color: #264e2c;
+    background-color: rgba(82, 197, 74, 0.2);
     font-size: 1rem;
-    -webkit-box-shadow: 0 8px 12px 3px rgba(29,59,33,0.53);
-    box-shadow: 0 8px 12px 3px rgba(29,59,33,0.53);
+    -webkit-box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
+    box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
+}
+
+.wrapp {
+    width: 100%;
+    height: 100%;
+    background-color: #f8fac5;
 }
 
 .btn {
@@ -27,14 +39,17 @@
     text-align: center;
     font-size: 20px;
     font-weight: 700;
-    color: #316539;
-    background-color: #dce078;
+    color: rgba(49, 101, 57, 0.8);
+    background-color: #E3EFBC;
 }
 
 .btn:hover {
     cursor: pointer;
-    background-color: #4ca25a;
-    color: #f8fac5;
+    background-color: #e1f3a7;
+    color: #316539;
+    border-style: none;
+    -webkit-box-shadow: 0 4px 4px 3px rgba(29,59,33,0.53);
+    box-shadow: 0 4px 4px 2px rgba(29, 59, 33, 0.16);
 }
 
 .buttons {
@@ -69,23 +84,23 @@
     width: 600px;
     height: 600px;
     transform: translate(-50%, -50%);
-    border: 2px solid #2c4d31;
-    -webkit-box-shadow: 0 8px 12px 3px rgba(29,59,33,0.53);
-    box-shadow: 0 8px 12px 3px rgba(29,59,33,0.53);
+    border: 2px solid #f8fac5;
+    -webkit-box-shadow: 0 8px 16px 3px rgba(29,59,33,0.3);
+    box-shadow: 0 8px 20px 3px rgba(29,59,33,0.3);
     background-color: dodgerblue;
     /*background: url("img/background.png");*/
 }
 
 canvas {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7em;
 }
 
 .score-board {
-    top: -100px;
+    /*top: 220px;*/
 }
 
     /*rules-page styles*/
@@ -99,9 +114,15 @@ canvas {
 .rules-heading,
 .rules-info {
     color: #dce078;
+    text-shadow: 2px 2px 6px rgba(150, 150, 150, 0.71);
+}
+
+.rules-heading {
+    font-size: 1.2em;
 }
 
 .rules-info {
+    font-size: 1.1em;
     text-indent: 10px;
     text-align: justify;
     color: #f8fac5;
@@ -113,7 +134,7 @@ canvas {
 }
 
 .rules-logo img {
-    margin-top: -60px;
+    margin-top: -80px;
     width: 100px;
     height: 100px;
 }
@@ -128,7 +149,7 @@ canvas {
 
 .records-heading,
 .records-info {
-    color: #dce078;
+    color: #3c5443;
 }
 
 .records-heading {
@@ -170,11 +191,13 @@ canvas {
         border-collapse: collapse;
         width: 90%;
         margin: 0 auto;
-        color: #f8fac5;
+        font-size: 2em;
+        color: #3c5443;
     }
     th, td{
+        text-align: center;
         padding: 10px 20px;
-        border: 1px solid #019a01;
+        border: 2px solid #3c5443;
     }
 
     /*about-game-page styles*/
@@ -187,11 +210,15 @@ canvas {
 
 .history-heading,
 .history-info {
+    font-size: 1.3em;
     color: #dce078;
+    text-shadow: 2px 2px 6px rgba(129, 129, 129, 0.6);
 }
 
 .history-text {
+    font-size: 1.2em;
     text-align: justify;
     text-indent: 10px;
     color: #f8fac5;
+    text-shadow: 2px 2px 6px rgba(129, 129, 129, 0.8);
 }
