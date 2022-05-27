@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -11,36 +12,32 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
 .wrapper {
     margin: 80px auto;
     width: 600px;
     height: 600px;
     border-radius: 20px;
-    background-color: rgba(82, 197, 74, 0.2);
+    background-color: #a4fa8c;
     font-size: 1rem;
     -webkit-box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
     box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
 }
 
-.wrapp {
-    width: 100%;
-    height: 100%;
-    background-color: #f8fac5;
-}
-
 .btn {
-    font-family: 'Montserrat', sans-serif;
     display: block;
     margin: 10px auto;
-    width: 150px;
+    width: 180px;
     height: 40px;
-    border-radius: 50px;
     border-style: none;
+    border-radius: 50px;
     text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: rgba(49, 101, 57, 0.8);
-    background-color: #E3EFBC;
+    font-size: 22px;
+    font-weight: 500;
+    color: #316539;
+    background-color: #d7f57d;
+    -webkit-box-shadow: 0 4px 4px 3px rgba(29,59,33,0.53);
+    box-shadow: 0 2px 2px 2px rgba(29, 59, 33, 0.16);
 }
 
 .btn:hover {
@@ -55,7 +52,6 @@ html, body {
 .buttons {
     display: flex;
     justify-content: center;
-    padding: 10px;
 }
 
     /*main-page styles*/
@@ -77,55 +73,58 @@ html, body {
 }
 
     /*game-page styles*/
-.game {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    transform: translate(-50%, -50%);
-    border: 2px solid #f8fac5;
-    -webkit-box-shadow: 0 8px 16px 3px rgba(29,59,33,0.3);
-    box-shadow: 0 8px 20px 3px rgba(29,59,33,0.3);
-    background-color: dodgerblue;
-    /*background: url("img/background.png");*/
-}
+/*.game {*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    position: absolute;*/
+/*    width: 600px;*/
+/*    height: 600px;*/
+/*    transform: translate(-50%, -50%);*/
+/*    border: 2px solid #f8fac5;*/
+/*    -webkit-box-shadow: 0 8px 16px 3px rgba(29,59,33,0.3);*/
+/*    box-shadow: 0 8px 20px 3px rgba(29,59,33,0.3);*/
+/*    background-color: dodgerblue;*/
+/*    !*background: url("img/background.png");*!*/
+/*}*/
 
 canvas {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 7em;
+    /*padding: 1em;*/
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.score-board {
-    /*top: 220px;*/
+#canvas1 {
+    background: url("img/background.png");
 }
 
     /*rules-page styles*/
 .rules {
     padding: 10px;
     margin: 10px;
-    font-family: 'Caveat Brush', cursive;
     text-align: center;
 }
 
 .rules-heading,
 .rules-info {
     color: #dce078;
-    text-shadow: 2px 2px 6px rgba(150, 150, 150, 0.71);
 }
 
 .rules-heading {
+    color: #f3fa42;
     font-size: 1.2em;
+    text-shadow: 2px 2px 6px rgb(0, 94, 0);
 }
 
 .rules-info {
     font-size: 1.1em;
+    font-weight: 500;
     text-indent: 10px;
     text-align: justify;
-    color: #f8fac5;
+    color: #494949;
 }
 
 .rules-logo {
@@ -143,7 +142,6 @@ canvas {
 .records {
     padding: 10px;
     margin: 10px;
-    font-family: 'Caveat Brush', cursive;
     text-align: center;
 }
 
@@ -164,6 +162,7 @@ canvas {
     height: 300px;
     margin: 10px auto;
     border: 4px solid #316539;
+    font-weight: 500;
 }
 
 .user-name {
@@ -187,38 +186,153 @@ canvas {
     height: 100px;
 }
 
-    table{
-        border-collapse: collapse;
-        width: 90%;
-        margin: 0 auto;
-        font-size: 2em;
-        color: #3c5443;
-    }
-    th, td{
-        text-align: center;
-        padding: 10px 20px;
-        border: 2px solid #3c5443;
-    }
+.wrapper .cont {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 500px;
+    margin: 20px;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+.username {
+    font-size: 1.5em;
+    text-align: center;
+    width: 250px;
+}
+
+.userscore {
+    font-size: 1.5em;
+    text-align: center;
+    width: 100px;
+}
 
     /*about-game-page styles*/
 .history {
     padding: 10px;
     margin: 10px;
-    font-family: 'Caveat Brush', cursive;
     text-align: center;
 }
 
 .history-heading,
 .history-info {
     font-size: 1.3em;
-    color: #dce078;
-    text-shadow: 2px 2px 6px rgba(129, 129, 129, 0.6);
+    color: #f3fa42;
+    text-shadow: 2px 2px 6px rgb(0, 94, 0);
 }
 
 .history-text {
     font-size: 1.2em;
-    text-align: justify;
+    font-weight: 500;
+    /*text-align: justify;*/
     text-indent: 10px;
-    color: #f8fac5;
-    text-shadow: 2px 2px 6px rgba(129, 129, 129, 0.8);
+    color: #494949;
+}
+
+.history-text p {
+    text-align: justify;
+}
+
+@media (max-width: 1180px) {
+    .wrapper {
+        margin: 80px auto;
+        width: 500px;
+        height: 500px;
+        border-radius: 15px;
+    }
+
+    .btn {
+        margin: 10px auto;
+        width: 140px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .frog {
+        width: 550px;
+        margin-top: 40px;
+    }
+
+    .rules {
+        font-size: 1em;
+    }
+
+    .rules-heading {
+        color: #f3fa42;
+        font-size: 1em;
+        text-shadow: 2px 2px 6px rgb(0, 94, 0);
+    }
+
+    .rules-info {
+        font-size: 0.95em;
+        text-indent: 8px;
+    }
+
+    .rules-logo img {
+        margin-top: -60px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .history-heading,
+    .history-info {
+        font-size: 1em;
+    }
+
+    .history-text {
+        font-size: 1em;
+        text-indent: 8px;
+    }
+}
+
+@media (max-width: 850px) {
+    .wrapper {
+        width: 360px;
+        height: 360px;
+        border-radius: 10px;
+    }
+
+    .frog {
+        width: 360px;
+        margin-top: 10px;
+    }
+
+    .rules {
+        font-size: 0.9em;
+        margin: 10px;
+        padding: 0;
+    }
+
+    .rules-heading {
+        font-size: 0.8em;
+    }
+
+    .rules-info {
+        font-size: 0.7em;
+        text-indent: 6px;
+    }
+
+    .rules-logo img {
+        margin-top: -40px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .history-heading,
+    .history-info {
+        font-size: 0.8em;
+    }
+
+    .history-text {
+        font-size: 0.7em;
+        text-indent: 6px;
+    }
+
+    .btn {
+        margin: 5px auto;
+        width: 120px;
+        height: 30px;
+        font-size: 16px;
+    }
 }

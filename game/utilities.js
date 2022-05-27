@@ -1,31 +1,34 @@
+'use strict'
+
+// import InputHandler from "../input.js";
+// new InputHandler();
 function animate() {
     ctx1.clearRect(0, 0, canvas.width, canvas.height);
     ctx2.clearRect(0, 0, canvas.width, canvas.height);
     ctx3.clearRect(0, 0, canvas.width, canvas.height);
-    //ctx4.clearRect(0, 0, canvas.width, canvas.height);
-    ctx5.clearRect(0, 0, canvas.width, canvas.height);
+    ctx4.clearRect(0, 0, canvas.width, canvas.height);
     ctx2.drawImage(background1, 0, 0 , canvas.width, canvas.height);
     frog.draw();
     frog.update();
     handleObjects();
-    //handleScoreBoard();
+    handleScoreBoard();
     requestAnimationFrame(animate); //рекурсия
 }
 animate();
 
 //заставим лягушку двигаться
-window.addEventListener('keydown', (e) => {
-    keys = [];
-    keys[e.keyCode] = true;
-    if (keys[37] || keys[38] || keys[39] || keys[40]) {
-        frog.jump();
-    }
-});
-
-window.addEventListener('keyup', (e) => {
-    delete keys[e.keyCode];
-    frog.moving = false;
-})
+// window.addEventListener('keydown', (e) => {
+//     keys = [];
+//     keys[e.keyCode] = true;
+//     if (keys[37] || keys[38] || keys[39] || keys[40]) {
+//         frog.jump();
+//     }
+// });
+//
+// window.addEventListener('keyup', (e) => {
+//     delete keys[e.keyCode];
+//     frog.moving = false;
+// })
 
 //функция зачисления очков
 function scored() {
@@ -38,35 +41,18 @@ function scored() {
 
 //табло с очками
 function handleScoreBoard() {
-
-    // ctx4.fillStyle = 'green';
-    // ctx4.strokeStyle = 'black';
-    // ctx4.font = '25px Arial';
-    // ctx4.fillText('Score:', 50, 20);
-    // ctx4.fillStyle = 'green';
-    // ctx4.font = '30px Verdana';
-    // ctx4.fillText(score, 125, 25);
-    // ctx4.fillStyle = 'red';
-    // ctx4.font = '20px Verdana';
-    // ctx4.fillText('Collisions: ' + collisionCount, 200, 20);
-    // ctx4.fillStyle = 'black';
-    // ctx4.fillText('Game Speed: ' + gameSpeed.toFixed(2), 380, 20);
-}
-
-function initScoreBoard(id, className) {
-    let scoreBoard = document.createElement('div');
-    scoreBoard.id= id;
-    scoreBoard.className = className;
-    let scoreField = document.createElement('div');
-    scoreField.className = 'score-field';
-    let scoreHeading = document.createElement('h3');
-    scoreHeading.textContent = 'Score:';
-    let scoreValue = document.createElement('h3');
-    scoreValue.innerHTML = score;
-    scoreField.appendChild(scoreHeading);
-    scoreField.appendChild(scoreValue);
-    scoreBoard.appendChild(scoreField);
-    return scoreBoard;
+    ctx4.fillStyle = 'green';
+    ctx4.strokeStyle = 'black';
+    ctx4.font = '25px Arial';
+    ctx4.fillText('Score:', 50, 20);
+    ctx4.fillStyle = 'green';
+    ctx4.font = '30px Verdana';
+    ctx4.fillText(score, 125, 25);
+    ctx4.fillStyle = 'red';
+    ctx4.font = '20px Verdana';
+    ctx4.fillText('Collisions: ' + collisionCount, 200, 20);
+    ctx4.fillStyle = 'black';
+    ctx4.fillText('Game Speed: ' + gameSpeed.toFixed(2), 380, 20);
 }
 
 //столкновения с машинами (first - это лягушка, second - машина)
@@ -81,7 +67,8 @@ function  collision(first, second) {
 
 //рестарт игры
 function resetGame() {
-    saveUserScore();
+    saveScore();
+    //saveUserScore();
     frog.x = canvas.width / 2 - frog.width / 2;
     frog.y = canvas.height - frog.height - 40;
     score = 0;
@@ -104,3 +91,63 @@ function saveUserScore() {
     }
 }
 
+function saveScore() {
+    const requestURL = 'https://jsonplaceholder.typicode.com/users';
+    let body;
+    let ask = confirm('You crashed! Continue?');
+
+    if (!ask) {
+        let user = prompt('Введите имя: ', '');
+        if (user !== '') {
+           body = {
+               name: user,
+               score: score
+           }
+            sendRequest('POST', requestURL, body)
+                .then(data => {
+                    console.log(data);
+                    function addEntry() {
+                        // Parse the JSON stored in allEntriesP
+                        let existingEntries = JSON.parse(localStorage.getItem("Users"));
+                        if(existingEntries == null) existingEntries = [];
+                        let entry = {
+                            "name": data.name,
+                            "score": data.score
+                        };
+                        localStorage.setItem("user", JSON.stringify(entry));
+                        // Save allEntries back to local storage
+                        existingEntries.push(entry);
+                        localStorage.setItem("Users", JSON.stringify(existingEntries));
+                        console.log(existingEntries);
+                        for (let i = 0; i < existingEntries.length; i++) {
+                            console.log(existingEntries[i]);
+                            let userNm = document.getElementById('user-name');
+                            let div2 = document.createElement('div');
+                            div2.innerHTML = existingEntries[i].name;
+                            userNm.appendChild(div2);
+                            let userScr = document.getElementById('user-score');
+                            let div3 = document.createElement('div');
+                            div3.innerHTML = existingEntries[i].score;
+                            userScr.appendChild(div3);
+                        }
+                    }
+                    addEntry();
+                })
+                .catch( err => console.log(err))
+        }
+        SwitchToRecordsPage();
+    }
+
+    function sendRequest(method, url, body = null) {
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        return fetch(url, {
+            method: method,
+            body: JSON.stringify(body),
+            headers: headers
+        }).then( response => {
+            return response.json();
+        })
+    }
+}

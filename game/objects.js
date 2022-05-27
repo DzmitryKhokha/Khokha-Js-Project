@@ -19,7 +19,7 @@ class Objects {
         } else if (this.type === 'log') {
             ctx1.drawImage(log, this.x, this.y, this.width, this.height);
         } else {
-            ctx2.fillRect(this.x, this.y, this.width, this.height);
+            // ctx2.fillRect(this.x, this.y, this.width, this.height);
             ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height, cell * 2, cell, this.x, this.y, this.width, this.height);
         }
     }

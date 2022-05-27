@@ -1,4 +1,5 @@
 // создаем класс Frog
+
 class Frog {
     constructor() {
         this.spriteWidth = 250;
@@ -47,8 +48,8 @@ class Frog {
         }
     }
     draw() {
-        ctx3.fillStyle = 'yellow';
-        ctx3.fillRect(this.x, this.y, this.width, this.height);
+        // ctx3.fillStyle = 'yellow';
+        // ctx3.fillRect(this.x, this.y, this.width, this.height);
         ctx3.drawImage(frogImage, 0, 0, this.spriteWidth, this.spriteHeight, this.x - 25, this.y - 25,
             this.width * 2, this.height * 2);
     }
@@ -57,4 +58,4 @@ class Frog {
     }
 }
 
-const  frog = new Frog();
+const frog = new Frog();
