@@ -15,7 +15,7 @@ class Objects {
     //отрисовка объектов(черепахи, брёвна, машины)
     draw() {
         if (this.type === 'turtle') {
-            ctx1.drawImage(turtle, 0, 0, 70, 70, this.x, this.y, this.width, this.height);
+            ctx1.drawImage(turtle, 0, 0, 280, 280, this.x, this.y, this.width, this.height);
         } else if (this.type === 'log') {
             ctx1.drawImage(log, this.x, this.y, this.width, this.height);
         } else {

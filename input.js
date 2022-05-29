@@ -1,4 +1,5 @@
-class InputHandler {
+'use strict'
+export class InputHandler {
     constructor() {
         window.addEventListener('keydown', (e) => {
             keys = [];
@@ -15,4 +16,4 @@ class InputHandler {
     }
 }
 
-new InputHandler();
+//new InputHandler();

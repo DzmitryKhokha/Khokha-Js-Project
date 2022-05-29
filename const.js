@@ -12,10 +12,10 @@ const logsArray = []; // массив брёвен, черепах, которы
 
 // картинки
 const background1 = new Image();
-background1.src = '/img/background1-6.png';
+background1.src = '/img/background1-7.png';
 
 const turtle = new Image();
-turtle.src = '/img/turtles.png';
+turtle.src = '/img/turtles-sprite.png';
 
 const log = new Image();
 log.src = '/img/log.png';
@@ -25,7 +25,7 @@ car.src = '/img/cars.png';
 let numberOfCars = 3;
 
 const frogImage = new Image();
-frogImage.src = '/img/frog_spritesheet.png';
+frogImage.src = '/img/frog_spritesheets.png';
 
 localStorage.clear();
 let users = [{"name":"John","score":8},{"name":"Peter","score":6}];

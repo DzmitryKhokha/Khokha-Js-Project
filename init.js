@@ -1,4 +1,4 @@
-//main-page
+//main-page init
 function initMainPage() {
     let wrapper = document.getElementById('wrapper');
     console.log(wrapper);
@@ -44,13 +44,13 @@ function initLogoImg() {
     let figure = document.createElement('figure');
     let img = document.createElement('img');
     img.className = 'frog';
-    img.src = '../img/main-page-background-4.png';
+    img.src = '../img/green-frog.png';
     img.alt = 'frogger';
     figure.appendChild(img);
     return figure;
 }
 
-//rules-page
+//rules-page init
 function initRulesPage() {
     let wrapper = document.getElementById('wrapper');
     wrapper.className = 'wrapper';
@@ -107,7 +107,7 @@ function initButton(hashchange) {
     return buttonDiv;
 }
 
-//records-page
+//records-page init
 function initRecordsPage() {
     let wrapper = document.getElementById('wrapper');
     wrapper.className = 'wrapper';
@@ -122,8 +122,8 @@ function initRecordsPage() {
 function createContainer() {
     let container = document.createElement('div');
     container.className = 'cont';
-    container.appendChild(createUserField('username', 'Name', 'Mark', 'user-name'));
-    container.appendChild(createUserField('userscore', 'Score', 22, 'user-score'));
+    container.appendChild(createUserField('user-name', 'Name', 'Mark', 'user-name'));
+    container.appendChild(createUserField('user-score', 'Score', 22, 'user-score'));
     return container;
 }
 
@@ -159,74 +159,7 @@ function initRecords() {
     });
 }
 
-/*function initTable() {
-    let table = document.createElement('table');
-    let thead = document.createElement('thead');
-    let tbody = document.createElement('tbody');
-    thead.appendChild(initFirstRow());
-    tbody.appendChild(initSecondRow());
-    tbody.appendChild(initThirdRow());
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    table.appendChild(initRow());
-    return table;
-}
-
-function initFirstRow() {
-    let row_1 = document.createElement('tr');
-    let heading_2 = document.createElement('th');
-    heading_2.innerHTML = 'Name';
-    let heading_3 = document.createElement('th');
-    heading_3.innerHTML = 'Score';
-    row_1.appendChild(heading_2);
-    row_1.appendChild(heading_3);
-    return row_1;
-}
-
-function initRow() {
-    let row = document.createElement('tr');
-    let data = JSON.parse(localStorage.getItem('user'));
-    row.appendChild(initRowData(data.name));
-    row.appendChild(initRowData(data.score));
-    console.log(data);
-    //console.log(userData);
-    //console.log(userData.name);
-    //console.log(userData.score);
-    //console.log(userData);
-    // console.log(userData);
-    //row.appendChild(initRowData(localStorage.getItem('score')));
-    return row;
-}
-
-function initRowData(score) {
-    let rowData = document.createElement('td');
-    rowData.innerHTML = score;
-    return rowData;
-}
-
-function initSecondRow() {
-    let row_2 = document.createElement('tr');
-    let row_2_data_2 = document.createElement('td');
-    row_2_data_2.innerHTML = "James";
-    let row_2_data_3 = document.createElement('td');
-    row_2_data_3.innerHTML = "6";
-    row_2.appendChild(row_2_data_2);
-    row_2.appendChild(row_2_data_3);
-    return row_2;
-}
-
-function initThirdRow() {
-    let row_3 = document.createElement('tr');
-    let row_3_data_2 = document.createElement('td');
-    row_3_data_2.innerHTML = "Adam";
-    let row_3_data_3 = document.createElement('td');
-    row_3_data_3.innerHTML = "3";
-    row_3.appendChild(row_3_data_2);
-    row_3.appendChild(row_3_data_3);
-    return row_3;
-}*/
-
-//about-game-page
+//about-game-page init
 function initAboutGamePage() {
     let wrapper = document.getElementById('wrapper');
     wrapper.className = 'wrapper';
@@ -263,21 +196,15 @@ function initHistory() {
     return history;
 }
 
-//Game-page
+//Game-page init
 function initGame() {
     let wrapper = document.getElementById('wrapper');
     console.log(wrapper);
-    // let game = document.createElement('div');
-    // game.className = 'game';
-    // game.id = 'game';
     wrapper.appendChild(initCanvas('canvas1'));
     wrapper.appendChild(initCanvas('canvas2'));
     wrapper.appendChild(initCanvas('canvas3'));
     wrapper.appendChild(initCanvas('canvas4', 'score-board'));
     wrapper.appendChild(initButton(SwitchToMainPage));
-    //initScoreBoard('score-board', 'score-board');
-    //wrapper.appendChild(game);
-
 }
 
 function initCanvas(id, className) {
@@ -286,4 +213,3 @@ function initCanvas(id, className) {
     canvas.className = className;
     return canvas;
 }
-
