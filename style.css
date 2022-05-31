@@ -1,0 +1,349 @@
+    /*shared styles*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border: 5px solid rgba(48, 79, 2, 0.57);
+    border-radius: 15px;
+    background-color: #e8fac9;
+    font-size: 1rem;
+    -webkit-box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
+    box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
+}
+
+.btn {
+    display: block;
+    margin: 10px auto;
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    font-size: 1em;
+    color: #304f02;
+    background-color: #79c103;
+    -webkit-box-shadow: 0 2px 2px 2px rgba(29,59,33,0.16);
+    box-shadow: 0 1px 1px 1px rgba(29, 59, 33, 0.1);
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #769b3e;
+    color: #E8F6D0;
+    border-style: none;
+    -webkit-box-shadow: 0 4px 4px 3px rgba(29,59,33,0.53);
+    box-shadow: 0 4px 4px 2px rgba(29, 59, 33, 0.16);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+    /*main-page styles*/
+.main-menu:first-child {
+    padding-top: 10px;
+}
+
+.container {
+    /*position: absolute;*/
+}
+
+.frog {
+    display: block;
+    width: 380px;
+    height: 380px;
+    margin: 0 auto;
+}
+
+    /*game-page styles*/
+canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#canvas1 {
+    background: url("img/background.png");
+    -webkit-box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
+    box-shadow: 0 8px 12px 3px rgba(29,59,33,0.33);
+}
+
+    /*rules-page styles*/
+.rules {
+    margin: 20px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.rules-heading,
+.rules-info {
+    color: #79c103;
+}
+
+.rules-heading {
+    margin: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+}
+
+.rules-info {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-indent: 10px;
+    text-align: justify;
+    color: #494949;
+}
+
+.rules-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.rules-logo img {
+    margin-top: -80px;
+    width: 100px;
+    height: 100px;
+}
+
+    /*records-page styles*/
+.records-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.records-logo img {
+    margin-top: -70px;
+    width: 100px;
+    height: 100px;
+}
+
+.wrapper .cont {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 500px;
+    margin: 20px;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+.user-name,
+.user-score {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    text-align: center;
+}
+
+.user-name {
+    width: 250px;
+}
+
+.user-name h2,
+.user-score h2 {
+    margin: 10px;
+    color: #79c103;
+}
+
+.user-name div,
+.user-score div {
+    padding: 5px;
+    color: #2e4b03;
+}
+
+.user-score {
+    width: 100px;
+}
+
+    /*about-game-page styles*/
+.history {
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.history-heading,
+.history-info {
+    padding: 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.3em;
+    color: #79c103;
+}
+
+.history-text {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-indent: 10px;
+    color: #494949;
+}
+
+.history-text p {
+    text-align: justify;
+}
+
+@media (max-width: 1180px) {
+    .wrapper {
+        width: 500px;
+        height: 500px;
+        border-radius: 15px;
+    }
+    .btn {
+        margin: 10px auto;
+    }
+    .frog {
+        width: 250px;
+        height: 250px;
+        margin-top: 40px;
+    }
+    .rules-info {
+        font-size: 1em;
+        text-indent: 8px;
+    }
+    .rules-logo img {
+        margin-top: -60px;
+        width: 80px;
+        height: 80px;
+    }
+    .history-heading,
+    .history-info {
+        font-size: 1em;
+    }
+    .history-text {
+        font-size: 1em;
+        text-indent: 8px;
+    }
+    .wrapper .cont {
+        width: 400px;
+        margin: 15px;
+        padding: 15px;
+    }
+    .user-name,
+    .user-score {
+        font-size: 1em;
+    }
+    .user-name {
+        width: 200px;
+    }
+    .user-score {
+        width: 80px;
+    }
+}
+
+@media (max-width: 850px) {
+    .wrapper {
+        width: 360px;
+        height: 360px;
+        border-radius: 10px;
+    }
+
+    .frog {
+        width: 150px;
+        height: 150px;
+        margin-top: 40px;
+    }
+
+    .rules {
+        margin: 10px;
+        padding: 0;
+    }
+
+    .rules-heading {
+        font-size: 0.8em;
+    }
+
+    .rules-info {
+        font-size: 0.7em;
+        text-indent: 6px;
+    }
+
+    .rules-logo img {
+        margin-top: -40px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .history-heading,
+    .history-info {
+        font-size: 0.8em;
+    }
+
+    .history-text {
+        font-size: 0.8em;
+        text-indent: 6px;
+    }
+
+    .btn {
+        margin: 5px auto;
+        width: 150px;
+        height: 30px;
+        font-size: 0.8em;
+    }
+
+    .wrapper .cont {
+        width: 300px;
+        margin: 10px;
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .user-name,
+    .user-score {
+        font-size: 1em;
+    }
+
+    .user-name {
+        width: 150px;
+    }
+
+    .user-score {
+        width: 60px;
+    }
+}
+
+    @media (max-height: 390px) {
+        .wrapper {
+            margin: 10px auto;
+            width: 550px;
+            height: 300px;
+        }
+
+        .main-menu {
+            display: flex;
+            margin: 10px;
+        }
+        .btn {
+            align-items: center;
+            padding: 0;
+            margin: 5px auto;
+            width: 125px;
+            height: 35px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        .frog {
+            width: 200px;
+            height: 200px;
+        }
+    }
