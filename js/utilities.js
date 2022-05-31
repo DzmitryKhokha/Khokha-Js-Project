@@ -12,23 +12,9 @@ function animate() {
     frog.update();
     handleObjects();
     handleScoreBoard();
-    requestAnimationFrame(animate); //рекурсия
+    requestAnimationFrame(animate);
 }
 animate();
-
-//заставим лягушку двигаться
-// window.addEventListener('keydown', (e) => {
-//     keys = [];
-//     keys[e.keyCode] = true;
-//     if (keys[37] || keys[38] || keys[39] || keys[40]) {
-//         frog.jump();
-//     }
-// });
-//
-// window.addEventListener('keyup', (e) => {
-//     delete keys[e.keyCode];
-//     frog.moving = false;
-// })
 
 //функция зачисления очков
 function scored() {
@@ -47,7 +33,7 @@ function handleScoreBoard() {
     ctx4.fillText('Score:', 50, 20);
     ctx4.fillStyle = 'green';
     ctx4.font = '30px Verdana';
-    ctx4.fillText(score, 125, 25);
+    ctx4.fillText(score.toString(), 125, 25);
     ctx4.fillStyle = 'red';
     ctx4.font = '20px Verdana';
     ctx4.fillText('Collisions: ' + collisionCount, 200, 20);
@@ -61,34 +47,16 @@ function  collision(first, second) {
                 first.x + first.width < second.x ||
                 first.y > second.y + second.height ||
                 first.y + first.height < second.y);
-    // если любое из выражений true значит лягушка и машины не пересекаются, поэтому мы возвращаем
-    // отрицательное значение false, чтобы сделать столкновение
 }
 
 //рестарт игры
 function resetGame() {
     saveScore();
-    //saveUserScore();
     frog.x = canvas.width / 2 - frog.width / 2;
     frog.y = canvas.height - frog.height - 40;
     score = 0;
     collisionCount++;
     gameSpeed = 1;
-}
-
-function saveUserScore() {
-    let ask = confirm('You crashed! Continue?');
-    if (!ask) {
-        let user = prompt('Введите имя: ', '');
-        if (user !== '') {
-            localStorage.setItem('user-name', JSON.stringify(user));
-            let userScore = localStorage.getItem('user-score');
-            let userName = localStorage.getItem('user-name');
-            alert(userName + ' your score is: ' + userScore);
-            SwitchToRecordsPage();
-            initTable();
-        }
-    }
 }
 
 function saveScore() {
@@ -98,6 +66,7 @@ function saveScore() {
 
     if (!ask) {
         let user = prompt('Введите имя: ', '');
+        const regExp = /^[a-zA-Zа-яёА-ЯЁ]+$/u;
         if (user !== '') {
            body = {
                name: user,

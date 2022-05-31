@@ -1,3 +1,4 @@
+'use strict'
 // создаем класс объектов(машины, брёвна, черепахи), которые будут препятствиями
 class Objects {
     constructor(x, y, width, height, speed, type) {
@@ -9,7 +10,6 @@ class Objects {
         this.type = type;
         this.frameX = 0;
         this.frameY = 0;
-        // this.randomise = Math.floor(Math.random() * 30 + 30);
         this.carType = (Math.floor(Math.random() * numberOfCars));
     }
     //отрисовка объектов(черепахи, брёвна, машины)
@@ -19,7 +19,6 @@ class Objects {
         } else if (this.type === 'log') {
             ctx1.drawImage(log, this.x, this.y, this.width, this.height);
         } else {
-            // ctx2.fillRect(this.x, this.y, this.width, this.height);
             ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height, cell * 2, cell, this.x, this.y, this.width, this.height);
         }
     }
@@ -73,12 +72,10 @@ initObjects();
 
 function handleObjects() {
     for (let i = 0; i < carsArray.length; i++) {
-
         carsArray[i].update();
         carsArray[i].draw();
     }
     for (let i = 0; i < logsArray.length; i++) {
-
         logsArray[i].update();
         logsArray[i].draw();
 
@@ -93,7 +90,6 @@ function handleObjects() {
     // взаимодействие с брёвнами и черепахами
     if (frog.y < 250 && frog.y > 100) {
         safe = false;
-
         for (let i = 0; i < logsArray.length; i++) {
             if (collision(frog, logsArray[i])) {
                 frog.x += logsArray[i].speed;
@@ -105,4 +101,3 @@ function handleObjects() {
         }
     }
 }
-

@@ -1,7 +1,42 @@
+'use strict'
+// объявляем глобальные переменные
+const cell = 80;    // размер ячейки в пикселях(т.е. шаг на который прыгает лягушка)
+let keys = [];      // массив в котором будут хранится keycodes
+let score = 0;      // очки
+let collisionCount = 0;     //счетчик столкновений
+let frame = 0;
+let gameSpeed = 1; // будет увеличиваться при успешной попытке
+let safe = false;
+
+const carsArray = []; // массив машин, которые будут ездить по дороге
+const logsArray = []; // массив брёвен, черепах, которые будут плыть по реке
+
+// картинки
+const background1 = new Image();
+background1.src = '/img/background1-7.png';
+
+const turtle = new Image();
+turtle.src = '/img/turtles-sprite.png';
+
+const log = new Image();
+log.src = '/img/log.png';
+
+const car = new Image();
+car.src = '/img/cars.png';
+let numberOfCars = 3;
+
+const frogImage = new Image();
+frogImage.src = '/img/frog_spritesheet.png';
+
+function setLocalStorage() {
+    localStorage.clear();
+    let users = [{"name":"John","score":8},{"name":"Peter","score":6}];
+    localStorage.setItem('Users', JSON.stringify(users));
+}
+
 //main-page init
 function initMainPage() {
     let wrapper = document.getElementById('wrapper');
-    console.log(wrapper);
     wrapper.className = 'wrapper';
     wrapper.appendChild(initMainMenu());
     wrapper.appendChild(initLogoContainer());
@@ -113,6 +148,7 @@ function initRecordsPage() {
     wrapper.className = 'wrapper';
     wrapper.appendChild(initRulesLogo());
     wrapper.appendChild(createContainer());
+    setLocalStorage();
     initRecords();
     wrapper.appendChild(initButton(SwitchToMainPage));
     wrapper.appendChild(initMenuButtons('New Game', 'btn', SwitchToNewGamePage));
@@ -133,29 +169,28 @@ function createUserField(className, text, info, id) {
     div.id = id;
     let heading = document.createElement('h2');
     heading.textContent = text;
-    let field = document.createElement('div');
-    field.innerHTML = info;
     div.appendChild(heading);
-    div.appendChild(field);
     return div;
 }
 
 function initRecords() {
     let users = JSON.parse(localStorage.getItem('Users'));
-    console.log(users);
     //деструктуризация
     let [name, score] = users;
-    console.log(name);
-    console.log(score);
     users.forEach(user => {
         let userName = document.getElementById('user-name');
+        let textName = document.createElement('p');
+        textName.textContent = user.name;
         let nameField = document.createElement('div');
-        nameField.innerHTML = user.name;
+        nameField.appendChild(textName);
         userName.appendChild(nameField);
         let userScore = document.getElementById('user-score');
+        let scoreText = document.createElement('p');
+        scoreText.textContent = user.score;
         let scoreField = document.createElement('div');
-        scoreField.innerHTML = user.score;
+        scoreField.appendChild(scoreText);
         userScore.appendChild(scoreField);
+
     });
 }
 
@@ -199,17 +234,18 @@ function initHistory() {
 //Game-page init
 function initGame() {
     let wrapper = document.getElementById('wrapper');
-    console.log(wrapper);
-    wrapper.appendChild(initCanvas('canvas1'));
-    wrapper.appendChild(initCanvas('canvas2'));
-    wrapper.appendChild(initCanvas('canvas3'));
-    wrapper.appendChild(initCanvas('canvas4', 'score-board'));
+    wrapper.appendChild(initCanvas('canvas1', 'canvas1', 600, 600));
+    wrapper.appendChild(initCanvas('canvas2', 'canvas2', 600, 600));
+    wrapper.appendChild(initCanvas('canvas3', 'canvas3', 600, 600));
+    wrapper.appendChild(initCanvas('canvas4', 'score-board', 600, 750));
     wrapper.appendChild(initButton(SwitchToMainPage));
 }
 
-function initCanvas(id, className) {
+function initCanvas(id, className, width, height) {
     let canvas = document.createElement('canvas');
     canvas.id = id;
     canvas.className = className;
+    canvas.width = width;
+    canvas.height = height;
     return canvas;
 }

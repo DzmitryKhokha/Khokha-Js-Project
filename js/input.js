@@ -15,5 +15,3 @@ export class InputHandler {
         });
     }
 }
-
-//new InputHandler();

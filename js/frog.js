@@ -1,5 +1,5 @@
+'use strict'
 // создаем класс Frog
-
 class Frog {
     constructor() {
         this.spriteWidth = 250;
@@ -9,8 +9,8 @@ class Frog {
         this.x = canvas.width / 2 - this.width / 2;  //стартовое положение лягушки по х
         this.y = canvas.height - this.height - 40;  //стартовое положение лягушки по y
         this.moving = false;
-        this.frameX = 0;
-        this.frameY = 0;
+        // this.frameX = 0;
+        // this.frameY = 0;
     }
     update() {
         //прыгаем вверх
@@ -48,8 +48,6 @@ class Frog {
         }
     }
     draw() {
-        // ctx3.fillStyle = 'yellow';
-        // ctx3.fillRect(this.x, this.y, this.width, this.height);
         ctx3.drawImage(frogImage, 0, 0, this.spriteWidth, this.spriteHeight, this.x - 25, this.y - 25,
             this.width * 2, this.height * 2);
     }
